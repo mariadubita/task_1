@@ -1,0 +1,21 @@
+- hosts: all
+  tasks:
+    -name: Disable SELinux
+      selinux:
+        state: disabled
+
+    - name: Install Apache
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Download template
+      get_url:
+        url: https://www.free-css.com/free-css-templates/page284/maker
+        dest: /var/www/html
+
+    - name: Unarchive a file that is already on the remote machine
+      get_url:
+        src: /var/www/html/maker
+        dest: /var/www/html
+        remote_src: yes
