@@ -34,4 +34,4 @@
   - name: Move Template file to /var/www/html
     shell: "mv /tmp/cryptop-html/* /var/www/html/"
     args:
-      chdir: /var/www/html/about.html
+      creates: /var/www/html/about.html
