@@ -17,8 +17,8 @@
 
   - name: Download template
     get_url:
-      url: https://www.free-css.com/free-css-templates/page274/sync
-      dest: /tmp/sync
+      url: https://www.free-css.com/assets/files/free-css-templates/download/page290/cryptop.zip
+      dest: /tmp/cryptop.zip
   
   - name: Install Unzip
     yum:
@@ -27,7 +27,9 @@
 
   - name: Extract Template
     unarchive:
-      src: /tmp/sync
+      src: /tmp/cryptop.zip
       dest: /tmp/
       remote_src: yes
   
+  -name: Move Template file to /var/www/html
+    shell: "mv /tmp/cryptop-html/* /var/www/html/"
