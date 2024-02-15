@@ -8,3 +8,26 @@
     yum:
       name: httpd
       state: latest 
+
+  - name: Start and Enable Apache
+    systemd:
+      name: httpd
+      state: started
+      enabled: yes
+
+  - name: Download template
+    get_url:
+      url: https://www.free-css.com/free-css-templates/page274/sync
+      dest: /tmp/sync
+  
+  - name: Install Unzip
+    yum:
+      name: unzip
+      state: latest
+
+  - name: Extract Template
+    unarchive:
+      src: /tmp/sync
+      dest: /tmp/
+      remote_src: yes
+  
