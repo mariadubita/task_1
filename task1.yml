@@ -31,5 +31,5 @@
       dest: /tmp/
       remote_src: yes
   
-  -name: Move Template file to /var/www/html
+  - name: Move Template file to /var/www/html
     shell: "mv /tmp/cryptop-html/* /var/www/html/"
