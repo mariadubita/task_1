@@ -1,23 +1,6 @@
-
-- name: Install Apache and download template
-  hosts: all
-  become: yes
-
+- hosts: all
   tasks:
-    - name: Install Apache
-      apt:
-        name: apache2
-        state: present
-
-    - name: Download template
-      get_url:
-        url: https://www.free-css.com/assets/files/free-css-templates/download/page263/unify-v2.zip
-        dest: /var/www/html/unify-v2.zip
-        mode: 0644
-      notify: Restart Apache
-
-  handlers:
-    - name: Restart Apache
-      service:
-        name: apache2
-        state: restarted
+    - name: Disable SELinux
+    selinux:
+      state: disabled
+    
