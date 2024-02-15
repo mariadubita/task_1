@@ -1,6 +1,6 @@
 - hosts: all
   tasks:
-    - name: Disable SELinux
+  - name: Disable SELinux
     selinux:
       state: disabled
     
