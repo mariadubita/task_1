@@ -3,4 +3,8 @@
   - name: Disable SELinux
     selinux:
       state: disabled
-    
+
+  - name: Install Apache
+    yum:
+      name: httpd
+      state: latest 
